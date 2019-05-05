@@ -1,3 +1,4 @@
+#coding:utf-8
 import paho.mqtt.client as mqtt
 import time
 
@@ -22,19 +23,24 @@ client.username_pw_set("rhdzbmfs", "ECvfT0nxtyab")
 client.loop_start()
 time.sleep(3)
 
-
-
 while True:
-    try:
-    	a = input("Para ativar o sensor, digite '1'")
-	    
-    	if(a == 1):
-		    client.publish("teste", "ligar")
-		    print ("enviou")
-		    time.sleep(1)
+	try:
+		a = input("Para ativar o sensor, digite '1' \n")
+
+		if(a == 1):
+			v = "ligar"
+			print ("Sensor Ativado!")
+			client.publish("teste", v)
+		time.sleep(1)
 	except KeyboardInterrupt:
 		client.loop_stop()
 		client.disconnect()
+
+
+
+    
+
+
 
 
 
